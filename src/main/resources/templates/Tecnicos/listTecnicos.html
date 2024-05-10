@@ -7,6 +7,7 @@
     <main>
       <div class="container px-4 py-5">
         <h2 class="pb-2 border-bottom">Lista Técnicos</h2>
+        <a class="btn btn-success mb-4" th:href="@{'/tecnicos/nuevo'}">Nuevo tecnico</a>
         <table class="table table-sm">
           <tr>
             <th>#</th>
@@ -15,6 +16,7 @@
             <th>DNI</th>
             <th>Teléfono</th>
             <th>Edad</th>
+            <th>Acciones</th>
           </tr>
           <tr th:each="tecnico, obj : ${listaTecnicos}">
             <td th:text="${obj.index + 1}"></td>
@@ -23,6 +25,8 @@
             <td th:text="${tecnico.dni}"></td>
             <td th:text="${tecnico.phone}"></td>
             <td th:text="${tecnico.age}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/tecnicos/editar?id=' + ${tecnico.technicianID}}">Editar</a>
+            </td>
           </tr>
         </table>
       </div>
